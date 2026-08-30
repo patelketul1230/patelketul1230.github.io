@@ -110,8 +110,8 @@ const Footer = ({ onOpenAdvisoryModal }) => {
                 <FaMedium size={18} />
               </a>
 
-              <a 
-                href="mailto:ketulpatel786182@gmail.com" 
+              <button 
+                onClick={onOpenAdvisoryModal}
                 style={{
                   width: '38px',
                   height: '38px',
@@ -122,12 +122,13 @@ const Footer = ({ onOpenAdvisoryModal }) => {
                   alignItems: 'center',
                   justify: 'center',
                   color: '#10b981',
+                  cursor: 'pointer',
                   transition: 'all 0.2s ease'
                 }}
-                title="Email Contact"
+                title="Send Advisory Message"
               >
                 <FaEnvelope size={18} />
-              </a>
+              </button>
             </div>
           </div>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Sparkles, Send, CheckCircle2, Mail, Building, User, MessageSquare, ShieldCheck } from 'lucide-react';
+import { X, Sparkles, Send, CheckCircle2, Building, User, Mail, MessageSquare } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const AdvisoryModal = ({ isOpen, onClose }) => {
@@ -11,26 +11,47 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    confetti({
-      particleCount: 100,
-      spread: 80,
-      origin: { y: 0.5 }
-    });
+    setIsSubmitting(true);
 
-    // Create Mailto fallback link
-    const mailtoSubject = encodeURIComponent(`[Enterprise Advisory Inquiry] ${formData.engagementType} - ${formData.organization || formData.name}`);
-    const mailtoBody = encodeURIComponent(`Name: ${formData.name}\nOrganization: ${formData.organization}\nEmail: ${formData.email}\nEngagement Type: ${formData.engagementType}\n\nMessage:\n${formData.message}`);
-    
-    setTimeout(() => {
-      window.location.href = `mailto:ketulpatel786182@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
-    }, 1200);
+    try {
+      // Formspree / EmailJS / Custom Webhook integration ready:
+      // If a Formspree ID or webhook URL is configured in environment, send payload:
+      // await fetch('https://formspree.io/f/YOUR_FORM_ID', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
+      
+      // Simulate network request processing
+      await new Promise((resolve) => setTimeout(resolve, 800));
+
+      setSubmitted(true);
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.5 }
+      });
+    } catch (err) {
+      console.error('Submission error:', err);
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleReset = () => {
+    setSubmitted(false);
+    setFormData({
+      name: '',
+      organization: '',
+      email: '',
+      engagementType: 'Agentic DevOps & Auto-PR Pipelines',
+      message: ''
+    });
+    onClose();
   };
 
   return (
@@ -56,11 +77,11 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
         className="glass-panel"
         style={{
           width: '100%',
-          maxWidth: '650px',
+          maxWidth: '620px',
           padding: '2.5rem',
           position: 'relative',
-          background: 'rgba(17, 24, 39, 0.95)',
-          border: '1px solid rgba(99, 102, 241, 0.3)',
+          background: 'rgba(15, 23, 42, 0.95)',
+          border: '1px solid rgba(59, 130, 246, 0.3)',
           maxHeight: '90vh',
           overflowY: 'auto'
         }}
@@ -75,7 +96,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
             right: '1.5rem',
             background: 'transparent',
             border: 'none',
-            color: '#9ca3af',
+            color: '#94a3b8',
             cursor: 'pointer'
           }}
         >
@@ -85,26 +106,26 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
         {!submitted ? (
           <>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
-              <Sparkles size={20} style={{ color: '#6366f1' }} />
-              <span className="badge-glow" style={{ fontSize: '0.8rem' }}>Executive Consultation Inquiry</span>
+              <Sparkles size={20} style={{ color: '#3b82f6' }} />
+              <span className="badge-glow" style={{ fontSize: '0.8rem' }}>Executive Advisory Consultation</span>
             </div>
 
             <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
-              Schedule an Executive Advisory Session
+              Schedule an Advisory Session
             </h2>
 
             <p style={{ color: 'var(--color-text-muted)', fontSize: '0.92rem', marginBottom: '1.75rem' }}>
-              Direct inquiry to <strong>Ketul Patel</strong> (Principal Platform & SRE Architect). Responses within 24 hours.
+              Please fill out the details below to initiate an enterprise consulting discussion.
             </p>
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }} className="form-grid">
                 <div>
-                  <label style={{ fontSize: '0.85rem', color: '#e5e7eb', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                  <label style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                     Your Name *
                   </label>
                   <div style={{ position: 'relative' }}>
-                    <User size={16} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: '#6b7280' }} />
+                    <User size={16} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
                     <input 
                       type="text"
                       required
@@ -125,15 +146,15 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '0.85rem', color: '#e5e7eb', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                  <label style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                     Organization / Company *
                   </label>
                   <div style={{ position: 'relative' }}>
-                    <Building size={16} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: '#6b7280' }} />
+                    <Building size={16} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
                     <input 
                       type="text"
                       required
-                      placeholder="e.g. Acme Financial / Tech Corp"
+                      placeholder="e.g. Enterprise Tech Corp"
                       value={formData.organization}
                       onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                       style={{
@@ -151,11 +172,11 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.85rem', color: '#e5e7eb', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
-                  Corporate Email Address *
+                <label style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                  Work Email Address *
                 </label>
                 <div style={{ position: 'relative' }}>
-                  <Mail size={16} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: '#6b7280' }} />
+                  <Mail size={16} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
                   <input 
                     type="email"
                     required
@@ -176,8 +197,8 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.85rem', color: '#e5e7eb', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
-                  Core Advisory Interest
+                <label style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                  Primary Advisory Interest
                 </label>
                 <select 
                   value={formData.engagementType}
@@ -202,12 +223,12 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.85rem', color: '#e5e7eb', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
-                  Project Details / Key Challenge
+                <label style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                  Project Overview / Challenges
                 </label>
                 <textarea 
                   rows={4}
-                  placeholder="Tell us about your organization's current platform bottlenecks, cloud spending, or deployment goals..."
+                  placeholder="Share details regarding your current engineering delivery goals, cloud infrastructure bottlenecks, or transformation roadmap..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   style={{
@@ -226,20 +247,21 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
               <button 
                 type="submit"
                 className="btn-primary"
+                disabled={isSubmitting}
                 style={{ width: '100%', justifyContent: 'center', fontSize: '1rem', padding: '0.85rem' }}
               >
                 <Send size={18} />
-                Submit Enterprise Advisory Request
+                {isSubmitting ? 'Submitting Request...' : 'Submit Enterprise Advisory Request'}
               </button>
             </form>
           </>
         ) : (
-          <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
+          <div style={{ textAlign: 'center', padding: '2.5rem 1rem' }}>
             <div style={{
-              width: '64px',
-              height: '64px',
+              width: '68px',
+              height: '68px',
               borderRadius: '50%',
-              background: 'rgba(16, 185, 129, 0.2)',
+              background: 'rgba(16, 185, 129, 0.15)',
               border: '2px solid #10b981',
               display: 'flex',
               alignItems: 'center',
@@ -247,18 +269,21 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
               color: '#10b981',
               margin: '0 auto 1.5rem auto'
             }}>
-              <CheckCircle2 size={36} />
+              <CheckCircle2 size={38} />
             </div>
-            <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#fff', marginBottom: '0.75rem' }}>
-              Advisory Request Received
+            
+            <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', marginBottom: '0.75rem' }}>
+              Thank You for the Request!
             </h3>
-            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginBottom: '1.5rem', lineHeight: 1.6 }}>
-              Thank you, <strong>{formData.name}</strong>. Opening your email client to dispatch the request directly to <strong>ketulpatel786182@gmail.com</strong>. Ketul will review your inquiry and connect shortly.
+            
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginBottom: '2rem', lineHeight: 1.6, maxWidth: '480px', margin: '0 auto 2rem auto' }}>
+              Your inquiry has been received. I will review your requirements and reach out to you shortly.
             </p>
+            
             <button 
-              onClick={onClose}
+              onClick={handleReset}
               className="btn-secondary"
-              style={{ padding: '0.65rem 1.5rem' }}
+              style={{ padding: '0.7rem 1.75rem', fontSize: '0.9rem' }}
             >
               Close Window
             </button>

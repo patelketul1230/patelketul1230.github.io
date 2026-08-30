@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Cpu, Terminal, ShieldCheck, Database, Cloud, Activity, Bot, Code, Filter, CheckCircle2 } from 'lucide-react';
+import { Cpu, Terminal, ShieldCheck, Database, Cloud, Activity, Bot, Code, Filter, CheckCircle2, Search } from 'lucide-react';
 
 const TechStack = () => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
     'All',
@@ -19,7 +20,7 @@ const TechStack = () => {
     { name: 'Kubernetes (CKA)', category: 'DevOps & Platform', icon: '☸️', level: 'Expert / Principal', details: 'Controller-agent architecture, Helm, CRDs, Guacamole ingress' },
     { name: 'Terraform (IaC)', category: 'DevOps & Platform', icon: '🏗️', level: 'Expert / Principal', details: 'Reusable modules for AWS/Azure, Dynatrace SLI/SLO modules' },
     { name: 'Docker & GitOps', category: 'DevOps & Platform', icon: '🐳', level: 'Expert', details: 'Multi-stage builds, Argo CD, Helm release automation' },
-    { name: 'Port.io (IDP)', category: 'DevOps & Platform', icon: '🚪', level: 'Expert / Principal', details: 'Internal Developer Platform, self-service catalog setup' },
+    { name: 'Internal Developer Portals (IDP)', category: 'DevOps & Platform', icon: '🚪', level: 'Expert / Principal', details: 'Self-service developer workflows, service catalog setup' },
     { name: 'CI/CD Orchestration', category: 'DevOps & Platform', icon: '🔄', level: 'Expert', details: 'Jenkins HA, Harness, Argo CD, Orkes Conductor' },
     
     // SRE & Observability
@@ -50,12 +51,16 @@ const TechStack = () => {
     { name: 'PostgreSQL & Redis', category: 'Databases & Scripting', icon: '🐘', level: 'Advanced', details: 'Stateful database deployments, caching layers, MySQL, MongoDB' }
   ];
 
-  const filteredSkills = activeCategory === 'All' 
-    ? skillMatrix 
-    : skillMatrix.filter(s => s.category === activeCategory);
+  const filteredSkills = skillMatrix.filter(s => {
+    const matchesCategory = activeCategory === 'All' || s.category === activeCategory;
+    const matchesQuery = s.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                         s.details.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         s.category.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesQuery;
+  });
 
   return (
-    <section id="techstack" style={{ padding: '5rem 0', background: 'rgba(17, 24, 39, 0.4)' }}>
+    <section id="techstack" style={{ padding: '5.5rem 0', background: 'rgba(15, 23, 42, 0.5)' }}>
       <div className="container-custom">
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 3.5rem auto' }}>
@@ -70,66 +75,97 @@ const TechStack = () => {
           </p>
         </div>
 
-        {/* Category Filters */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.6rem', marginBottom: '2.5rem' }}>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
+        {/* Search & Category Filter Controls */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1.25rem', marginBottom: '2.5rem' }}>
+          
+          {/* Search Input */}
+          <div style={{ position: 'relative', width: '100%', maxWidth: '320px' }}>
+            <Search size={16} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
+            <input 
+              type="text"
+              placeholder="Search tools (e.g. Terraform, Kubernetes)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               style={{
-                padding: '0.55rem 1.25rem',
-                borderRadius: '9999px',
-                fontSize: '0.85rem',
-                fontWeight: 600,
-                border: activeCategory === cat ? '1px solid #6366f1' : '1px solid var(--border-color)',
-                background: activeCategory === cat ? 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)' : 'rgba(255, 255, 255, 0.04)',
+                width: '100%',
+                padding: '0.55rem 0.8rem 0.55rem 2.4rem',
+                borderRadius: '10px',
+                background: 'rgba(15, 23, 42, 0.8)',
+                border: '1px solid var(--border-color)',
                 color: '#fff',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                fontSize: '0.85rem',
+                outline: 'none'
               }}
-            >
-              {cat}
-            </button>
-          ))}
+            />
+          </div>
+
+          {/* Category Pill Buttons */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                style={{
+                  padding: '0.45rem 1rem',
+                  borderRadius: '9999px',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  border: activeCategory === cat ? '1px solid #3b82f6' : '1px solid var(--border-color)',
+                  background: activeCategory === cat ? 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)' : 'rgba(255, 255, 255, 0.04)',
+                  color: '#fff',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Matrix Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.25rem' }}>
-          {filteredSkills.map((skill, index) => (
-            <div 
-              key={index}
-              className="glass-panel"
-              style={{
-                padding: '1.25rem',
-                display: 'flex',
-                flexDirection: 'column',
-                justify: 'space-between'
-              }}
-            >
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ fontSize: '1.3rem' }}>{skill.icon}</span>
-                    <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>
-                      {skill.name}
-                    </h3>
+          {filteredSkills.length > 0 ? (
+            filteredSkills.map((skill, index) => (
+              <div 
+                key={index}
+                className="glass-panel"
+                style={{
+                  padding: '1.25rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justify: 'space-between'
+                }}
+              >
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ fontSize: '1.3rem' }}>{skill.icon}</span>
+                      <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>
+                        {skill.name}
+                      </h3>
+                    </div>
+                    <span className="badge-glow" style={{ fontSize: '0.7rem', padding: '0.2rem 0.5rem' }}>
+                      {skill.level}
+                    </span>
                   </div>
-                  <span className="badge-glow" style={{ fontSize: '0.7rem', padding: '0.2rem 0.5rem' }}>
-                    {skill.level}
-                  </span>
+
+                  <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '0.75rem' }}>
+                    {skill.details}
+                  </p>
                 </div>
 
-                <p style={{ fontSize: '0.82rem', color: '#9ca3af', lineHeight: 1.5, marginBottom: '0.75rem' }}>
-                  {skill.details}
-                </p>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '0.6rem', fontSize: '0.75rem', color: '#60a5fa', fontWeight: 600 }}>
+                  <span>{skill.category}</span>
+                  <CheckCircle2 size={14} style={{ color: '#10b981' }} />
+                </div>
               </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', justifyBetween: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '0.6rem', fontSize: '0.75rem', color: '#6366f1', fontWeight: 600 }}>
-                <span>{skill.category}</span>
-                <CheckCircle2 size={14} style={{ color: '#10b981' }} />
-              </div>
+            ))
+          ) : (
+            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: '#94a3b8' }}>
+              No tools found matching "{searchQuery}". Try searching for Kubernetes, Terraform, or SRE.
             </div>
-          ))}
+          )}
         </div>
       </div>
     </section>

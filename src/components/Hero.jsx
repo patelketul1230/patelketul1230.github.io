@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Cpu, Terminal, Sparkles, ArrowRight, CheckCircle2, TrendingUp, DollarSign, Award, ChevronRight } from 'lucide-react';
+import { ShieldCheck, Cpu, Terminal, Sparkles, ArrowRight, CheckCircle2, TrendingUp, DollarSign, Award, ChevronRight, Activity, Zap } from 'lucide-react';
 
 const Hero = ({ onOpenAdvisoryModal }) => {
   const certifications = [
@@ -26,14 +26,30 @@ const Hero = ({ onOpenAdvisoryModal }) => {
       }}
     >
       <div className="container-custom">
-        {/* Top Pills */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '1.5rem', alignItems: 'center' }}>
-          <span className="badge-glow" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-            <Sparkles size={14} /> Enterprise Advisory & Platform Leadership
+        {/* Live Architecture Status Bar */}
+        <div style={{
+          display: 'inline-flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          gap: '0.75rem',
+          background: 'rgba(15, 23, 42, 0.8)',
+          border: '1px solid rgba(59, 130, 246, 0.3)',
+          borderRadius: '9999px',
+          padding: '0.4rem 1.25rem',
+          fontSize: '0.82rem',
+          marginBottom: '1.75rem',
+          color: '#cbd5e1'
+        }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#10b981', fontWeight: 700 }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }} />
+            Agentic DevOps Auto-PR: ACTIVE
           </span>
-          <span className="badge-emerald" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-            <TrendingUp size={14} /> Agentic DevOps & LLMOps Architect
-          </span>
+          <span style={{ color: '#475569' }}>•</span>
+          <span>SLO Target: 99.99%</span>
+          <span style={{ color: '#475569' }}>•</span>
+          <span style={{ color: '#60a5fa', fontWeight: 600 }}>$3M+ Azure FinOps Saved</span>
+          <span style={{ color: '#475569' }}>•</span>
+          <span style={{ color: '#38bdf8' }}>IDP Catalog: Enabled</span>
         </div>
 
         {/* Main Grid */}
@@ -114,7 +130,7 @@ const Hero = ({ onOpenAdvisoryModal }) => {
           <div className="glass-panel" style={{ padding: '2rem', position: 'relative' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#fff', fontWeight: 700, fontSize: '1rem' }}>
-                <Cpu style={{ color: '#6366f1' }} size={20} />
+                <Cpu style={{ color: '#3b82f6' }} size={20} />
                 Enterprise Impact Summary
               </div>
               <span className="badge-glow" style={{ fontSize: '0.75rem' }}>Principal Track Record</span>
@@ -125,8 +141,8 @@ const Hero = ({ onOpenAdvisoryModal }) => {
                 <div 
                   key={i} 
                   style={{
-                    background: 'rgba(0, 0, 0, 0.3)',
-                    border: '1px solid rgba(255, 255, 255, 0.06)',
+                    background: 'rgba(15, 23, 42, 0.8)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
                     borderRadius: '12px',
                     padding: '1.25rem 1rem',
                   }}
@@ -134,10 +150,10 @@ const Hero = ({ onOpenAdvisoryModal }) => {
                   <div className="gradient-text" style={{ fontSize: '1.8rem', fontWeight: 800, lineHeight: 1 }}>
                     {stat.value}
                   </div>
-                  <div style={{ color: '#f3f4f6', fontWeight: 600, fontSize: '0.88rem', marginTop: '0.3rem' }}>
+                  <div style={{ color: '#f8fafc', fontWeight: 600, fontSize: '0.88rem', marginTop: '0.3rem' }}>
                     {stat.label}
                   </div>
-                  <div style={{ color: '#9ca3af', fontSize: '0.75rem', marginTop: '0.2rem' }}>
+                  <div style={{ color: '#94a3b8', fontSize: '0.75rem', marginTop: '0.2rem' }}>
                     {stat.highlight}
                   </div>
                 </div>
@@ -153,7 +169,7 @@ const Hero = ({ onOpenAdvisoryModal }) => {
               alignItems: 'center', 
               justify: 'space-between',
               fontSize: '0.8rem',
-              color: '#9ca3af'
+              color: '#94a3b8'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span style={{

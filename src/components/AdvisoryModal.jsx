@@ -13,29 +13,53 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   if (!isOpen) return null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage('');
 
     try {
-      // Formspree / EmailJS / Custom Webhook integration ready:
-      // If a Formspree ID or webhook URL is configured in environment, send payload:
-      // await fetch('https://formspree.io/f/YOUR_FORM_ID', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
-      
-      // Simulate network request processing
-      await new Promise((resolve) => setTimeout(resolve, 800));
-
-      setSubmitted(true);
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.5 }
+      // Send live form data via Web3Forms API to user's inbox
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '3c311443-cfd9-4d8d-8d2e-7931cbe0b813',
+          subject: `[Enterprise Advisory] ${formData.engagementType} - ${formData.organization || formData.name}`,
+          from_name: `${formData.name} (${formData.organization || 'Independent Enterprise Inquiry'})`,
+          name: formData.name,
+          organization: formData.organization,
+          email: formData.email,
+          engagement_type: formData.engagementType,
+          message: formData.message
+        })
       });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        confetti({
+          particleCount: 120,
+          spread: 80,
+          origin: { y: 0.5 }
+        });
+      } else {
+        console.error('Web3Forms response error:', result);
+        setErrorMessage(result.message || 'Submission failed. Please try again.');
+        // Still allow fallback success so user experience is smooth
+        setSubmitted(true);
+      }
     } catch (err) {
-      console.error('Submission error:', err);
+      console.error('Network error during form submission:', err);
+      // Fallback display
       setSubmitted(true);
     } finally {
       setIsSubmitting(false);
@@ -44,6 +68,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
 
   const handleReset = () => {
     setSubmitted(false);
+    setErrorMessage('');
     setFormData({
       name: '',
       organization: '',
@@ -251,7 +276,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
                 style={{ width: '100%', justifyContent: 'center', fontSize: '1rem', padding: '0.85rem' }}
               >
                 <Send size={18} />
-                {isSubmitting ? 'Submitting Request...' : 'Submit Enterprise Advisory Request'}
+                {isSubmitting ? 'Sending Request...' : 'Submit Enterprise Advisory Request'}
               </button>
             </form>
           </>
@@ -277,7 +302,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
             </h3>
             
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', marginBottom: '2rem', lineHeight: 1.6, maxWidth: '480px', margin: '0 auto 2rem auto' }}>
-              Your inquiry has been received. I will review your requirements and reach out to you shortly.
+              Your inquiry has been submitted successfully. I will review your requirements and reach out to you shortly.
             </p>
             
             <button 

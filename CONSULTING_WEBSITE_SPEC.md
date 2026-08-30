@@ -4,19 +4,12 @@
 Transform the existing repository into a high-impact, state-of-the-art **Enterprise Platform Engineering, SRE & LLMOps Advisory Platform** for **Ketul Patel**.
 
 - **Primary Title & Persona**: **Principal Platform & SRE Architect**
-- **Brand Essence**: High-end enterprise consulting & advisory firm aesthetic. Designed for CTOs, VPs of Engineering, Platform Directors, and Organizations seeking strategic transformation in Agentic DevOps, SRE, Internal Developer Portals (IDP), Cloud FinOps, and LLMOps.
-- **Enterprise Anonymization & Confidentiality**: Case studies use industry domain titles (*Enterprise Financial & Mortgage Platform*, *High-Scale SaaS & Kubernetes Infrastructure*, *Multi-Cloud Identity & Security Platform*) rather than direct employer names. Technology terms generalize vendor products to **Internal Developer Portals (IDP)** and **Developer Self-Service Catalogs**.
+- **Brand Aesthetic & Style**: **Bespoke Enterprise Slate & Navy Aesthetic** (Inspired by Stripe, Datadog, and McKinsey Executive Insights). Replaces generic dark templates with high-contrast slate-blue depth (`#0F172A`, `#1E293B`), refined typography (Plus Jakarta Sans & Inter), clean micro-interactions, and executive card layouts.
+- **Enterprise Anonymization & Confidentiality**: Case studies use industry domain titles (*Enterprise Financial & Mortgage Platform*, *High-Scale SaaS & Kubernetes Infrastructure*, *Multi-Cloud Identity & Security Platform*). Technology terms generalize vendor products to **Internal Developer Portals (IDP)** and **Developer Self-Service Portals**.
 
 ---
 
-## 2. Target Audience & Business Objectives
-- **Enterprise Executives & Engineering Leadership**: Seeking high-ROI advisory, developer productivity improvement, and cloud cost reduction (Proven track record of **$3M+ Azure cost savings**).
-- **Platform & DevOps Organizations**: Seeking actionable architectural blueprints for Internal Developer Portals (IDP), SRE/SLO implementations, and AI-driven self-healing CI/CD pipelines.
-- **Engineering Community & Learners**: Accessing Ketul's Medium technical articles ([medium.com/@kpsub786](https://medium.com/@kpsub786)) with focus on **Agentic DevOps**, and public GitHub repositories ([github.com/patelketul1230](https://github.com/patelketul1230)).
-
----
-
-## 3. Platform Architecture & Section Breakdown
+## 2. Platform Architecture & Section Breakdown
 
 ### A. Executive Hero Section
 - **Headline**: *Principal Platform & SRE Architect*
@@ -26,32 +19,24 @@ Transform the existing repository into a high-impact, state-of-the-art **Enterpr
 
 ### B. Core Consulting & Advisory Offerings (Services Grid)
 1. **Agentic DevOps & Auto-Remediation Pipelines**:
-   - Architected AI pipeline automation analyzing build failures and generating fix PRs automatically (60% troubleshooting effort reduction).
-   - Continuous Deployment (CD) standardization across enterprise development teams.
+   - AI pipeline automation analyzing build failures and generating fix PRs automatically (60% troubleshooting effort reduction).
 2. **Platform Engineering & Internal Developer Portals (IDP)**:
-   - Self-service catalog ecosystems enabling developers to deploy code and access product telemetry from a unified portal.
+   - Self-service catalog ecosystems enabling developers to deploy code and access product telemetry.
 3. **Enterprise SRE & Observability Infrastructure**:
    - Google SRE partnership rollout; Terraform modules defining SLIs, SLOs, and error budget tracking in Dynatrace.
-   - Real-time logging & monitoring via Grafana, Loki, Prometheus, and ELK Stack.
 4. **Cloud FinOps & Multi-Cloud Optimization**:
    - Azure & AWS cost architecture optimization ($3M achieved Azure cost savings).
 5. **LLMOps & Secure RAG Architectures**:
-   - AWS Bedrock, Retrieval-Augmented Generation (RAG), model registry, and governance pipelines for secure enterprise AI deployment.
+   - AWS Bedrock, Retrieval-Augmented Generation (RAG), and governance pipelines for secure enterprise AI deployment.
 
-### C. Featured Enterprise Case Studies (Anonymized Industry Domains)
-Each case study includes an interactive **"Before vs. After Architecture"** toggle:
+### C. Featured Enterprise Case Studies (Side-by-Side Architectural Comparison)
+Redesigned with a **Side-by-Side Comparison Layout** (or side toggle panel) comparing **Legacy Architecture (Before)** vs. **Transformed Architecture (After)**:
 - **Case Study 1: Enterprise Financial & Mortgage Platform**:
-  - *Domain*: High-Scale Financial & Mortgage Technology
-  - *Before vs. After Toggle*: Legacy Manual Troubleshooting & Escalation ➔ **Agentic DevOps Auto-PR Repair Engine** (60% effort reduction).
-  - *Impact*: $3M Azure cost savings, Google SRE/DORA adoption, Internal Developer Portal (IDP) rollout, Dynatrace SLI/SLO modules.
+  - *Side Comparison*: Legacy Manual Troubleshooting & Escalation ➔ **Agentic DevOps Auto-PR Repair Engine** (60% effort reduction).
 - **Case Study 2: High-Scale Cloud & SaaS Infrastructure**:
-  - *Domain*: Global Cloud Infrastructure
-  - *Before vs. After Toggle*: Standalone Jenkins Instance ➔ **Highly Available K8s Controller-Agent Cluster (Helm)**.
-  - *Impact*: 40% incident MTTR reduction, Guacamole K8s browser-based zero-trust access, Nginx Grafana/Loki observability.
+  - *Side Comparison*: Standalone Jenkins & Legacy VPN ➔ **Highly Available K8s Controller-Agent Cluster (Helm)**.
 - **Case Study 3: Enterprise Identity & Security Platform**:
-  - *Domain*: Identity & Access Infrastructure
-  - *Before vs. After Toggle*: Manual ClickOps / Drift Infrastructure ➔ **100% Modular Terraform IaC Automation**.
-  - *Impact*: Keycloak SAML SSO across AWS, GitLab, Grafana, Jenkins & SonarQube, Helm ELK Stack logging.
+  - *Side Comparison*: Manual ClickOps / Drift Infrastructure ➔ **100% Modular Terraform IaC Automation**.
 
 ### D. Interactive Enterprise Client Tools
 - **Interactive DORA Scorecard Self-Assessment**: Real-time DORA maturity calculator with tailored advisory roadmaps.
@@ -59,7 +44,7 @@ Each case study includes an interactive **"Before vs. After Architecture"** togg
 - **Interactive Skill & Tooling Radar**: Filterable matrix across DevOps, SRE, Cloud, Security, DBs, Scripting, and LLMOps.
 
 ### E. Thought Leadership & Open-Source Hub
-- **Medium Technical Publications**: Live integration with Ketul's Medium blog feed ([medium.com/@kpsub786](https://medium.com/@kpsub786)) featuring specific highlights on **Agentic DevOps** and LLMOps.
+- **Medium Technical Publications**: Live integration with Ketul's Medium blog feed ([medium.com/@kpsub786](https://medium.com/@kpsub786)).
 - **Featured Open-Source Infrastructure**: Curated showcase of public GitHub repositories ([github.com/patelketul1230](https://github.com/patelketul1230)).
 
 ### F. Enterprise Advisory Inquiry Portal

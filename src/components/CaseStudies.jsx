@@ -1,24 +1,13 @@
 import React, { useState } from 'react';
-import { Building2, Calendar, MapPin, CheckCircle2, AlertTriangle, ArrowRight, ShieldCheck, Zap, ToggleLeft, ToggleRight, Sparkles } from 'lucide-react';
+import { Building2, Calendar, MapPin, CheckCircle2, AlertTriangle, ArrowRight, ShieldCheck, Zap, Layers, Columns2 } from 'lucide-react';
 
 const CaseStudies = ({ onOpenAdvisoryModal }) => {
-  const [toggleState, setToggleState] = useState({
-    fintech: 'after',
-    saas: 'after',
-    identity: 'after'
-  });
-
-  const handleToggle = (id) => {
-    setToggleState(prev => ({
-      ...prev,
-      [id]: prev[id] === 'before' ? 'after' : 'before'
-    }));
-  };
+  const [activeView, setActiveView] = useState('split'); // 'split' | 'before' | 'after'
 
   const caseStudies = [
     {
       id: 'fintech',
-      company: 'Enterprise Financial & Mortgage Scale Platform',
+      company: 'Enterprise Financial & Mortgage Platform',
       role: 'Principal Platform & SRE Architect (Lead)',
       period: 'Jan 2026 - Present (DevOps Lead: 2025)',
       location: 'United States',
@@ -30,7 +19,7 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
         { label: 'Platform IDP', value: 'Internal Portal' }
       ],
       before: {
-        architectureTitle: 'Legacy Manual Troubleshooting & Fragmented Tooling',
+        architectureTitle: 'Legacy Architecture (Before Transformation)',
         points: [
           'Engineers spent hours manually combing through build failure logs in CI/CD pipelines.',
           'Deployment practices varied across multi-team orgs with inconsistent release gates.',
@@ -39,7 +28,7 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
         ]
       },
       after: {
-        architectureTitle: 'Agentic DevOps Auto-Healing Pipeline & Developer Portal Ecosystem',
+        architectureTitle: 'Transformed Platform & Agentic Ecosystem (After)',
         points: [
           'Architected an Agentic DevOps pipeline auto-analyzing build failures and generating fix PRs (60% troubleshooting effort reduction).',
           'Standardized Continuous Deployment (CD) practices across the entire organization.',
@@ -64,7 +53,7 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
         { label: 'CI/CD Scalability', value: 'HA Controller' }
       ],
       before: {
-        architectureTitle: 'Standalone Jenkins & VPN-Dependent SSH Access',
+        architectureTitle: 'Legacy Infrastructure (Before)',
         points: [
           'Single standalone Jenkins server creating execution bottlenecks and single-point-of-failure risks.',
           'Remote server administration heavily reliant on VPN connectivity and legacy bastion hosts.',
@@ -72,7 +61,7 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
         ]
       },
       after: {
-        architectureTitle: 'Highly Available Kubernetes Controller-Agent Architecture',
+        architectureTitle: 'High-Availability K8s & Zero-Trust Access (After)',
         points: [
           'Migrated standalone Jenkins to HA Kubernetes controller–agent architecture via Helm charts, boosting scalability.',
           'Deployed Guacamole on Kubernetes cluster providing browser-based SSH access, eliminating VPN dependencies.',
@@ -94,7 +83,7 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
         { label: 'Observability', value: 'ELK Stack' }
       ],
       before: {
-        architectureTitle: 'Manual ClickOps Deployments & Fragmented Auth',
+        architectureTitle: 'Manual ClickOps & Fragmented Auth (Before)',
         points: [
           'AWS infrastructure managed manually, leading to configuration drift and slow environment provisioning.',
           'Fragmented user management across AWS, GitLab, Grafana, Jenkins, and SonarQube without SSO.',
@@ -102,7 +91,7 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
         ]
       },
       after: {
-        architectureTitle: 'Modular Terraform AWS Architecture & Keycloak SAML SSO',
+        architectureTitle: 'Modular Terraform IaC & SAML SSO Ecosystem (After)',
         points: [
           'Led full migration of AWS infrastructure to Terraform reusable modules for frontend/backend services.',
           'Configured Keycloak SAML authentication in K8s cluster centralizing access across AWS, GitLab, Grafana, Jenkins & SonarQube.',
@@ -114,142 +103,209 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
   ];
 
   return (
-    <section id="casestudies" style={{ padding: '5rem 0', background: 'rgba(17, 24, 39, 0.4)' }}>
+    <section id="casestudies" style={{ padding: '5.5rem 0', background: 'rgba(15, 23, 42, 0.5)' }}>
       <div className="container-custom">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 4rem auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3.5rem auto' }}>
           <span className="badge-glow" style={{ marginBottom: '0.75rem' }}>
-            Proven Advisory Track Record
+            Executive Advisory Impact
           </span>
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem' }}>
             Enterprise Case Studies & Transformations
           </h2>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.05rem', marginTop: '0.75rem' }}>
-            Interactive architectural evolution breakdown across financial tech, global SaaS, and enterprise security platforms. Toggle between <strong style={{ color: '#ef4444' }}>Before</strong> and <strong style={{ color: '#10b981' }}>After</strong> states to see the engineering impact.
+            Side-by-side architectural analysis comparing legacy infrastructure vs. transformed platform ecosystems.
           </p>
+
+          {/* View Filter Mode Selector */}
+          <div style={{ display: 'inline-flex', gap: '0.4rem', background: 'rgba(0,0,0,0.3)', padding: '0.35rem', borderRadius: '10px', marginTop: '1.5rem', border: '1px solid var(--border-color)' }}>
+            <button 
+              onClick={() => setActiveView('split')}
+              style={{
+                padding: '0.4rem 0.85rem',
+                borderRadius: '6px',
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                border: 'none',
+                background: activeView === 'split' ? '#3b82f6' : 'transparent',
+                color: activeView === 'split' ? '#fff' : '#94a3b8',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}
+            >
+              <Columns2 size={15} /> Side-by-Side View
+            </button>
+            <button 
+              onClick={() => setActiveView('after')}
+              style={{
+                padding: '0.4rem 0.85rem',
+                borderRadius: '6px',
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                border: 'none',
+                background: activeView === 'after' ? '#10b981' : 'transparent',
+                color: activeView === 'after' ? '#fff' : '#94a3b8',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}
+            >
+              <CheckCircle2 size={15} /> Transformed (After) Only
+            </button>
+            <button 
+              onClick={() => setActiveView('before')}
+              style={{
+                padding: '0.4rem 0.85rem',
+                borderRadius: '6px',
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                border: 'none',
+                background: activeView === 'before' ? '#f43f5e' : 'transparent',
+                color: activeView === 'before' ? '#fff' : '#94a3b8',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}
+            >
+              <AlertTriangle size={15} /> Legacy (Before) Only
+            </button>
+          </div>
         </div>
 
         {/* Case Studies List */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-          {caseStudies.map((study) => {
-            const currentState = toggleState[study.id];
-            const activeData = currentState === 'before' ? study.before : study.after;
-
-            return (
-              <div 
-                key={study.id}
-                className="glass-panel"
-                style={{
-                  padding: '2.5rem',
-                  border: currentState === 'after' ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(239, 68, 68, 0.3)',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                {/* Header row */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1.5rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem' }}>
-                  <div>
-                    <span className="badge-glow" style={{ marginBottom: '0.5rem' }}>{study.tag}</span>
-                    <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', marginTop: '0.3rem' }}>
-                      {study.company}
-                    </h3>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', color: '#9ca3af', fontSize: '0.88rem', marginTop: '0.4rem' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', color: '#6366f1', fontWeight: 600 }}>
-                        <Building2 size={15} /> {study.role}
-                      </span>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                        <Calendar size={15} /> {study.period}
-                      </span>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                        <MapPin size={15} /> {study.location}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Before / After Toggle Button */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'rgba(0,0,0,0.4)', padding: '0.5rem 1rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
-                    <span style={{ fontSize: '0.85rem', fontWeight: 700, color: currentState === 'before' ? '#ef4444' : '#6b7280' }}>
-                      BEFORE
+          {caseStudies.map((study) => (
+            <div 
+              key={study.id}
+              className="glass-panel"
+              style={{ padding: '2.25rem' }}
+            >
+              {/* Card Header Info */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1.5rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem' }}>
+                <div>
+                  <span className="badge-glow" style={{ marginBottom: '0.5rem' }}>{study.tag}</span>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', marginTop: '0.3rem' }}>
+                    {study.company}
+                  </h3>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', color: '#94a3b8', fontSize: '0.88rem', marginTop: '0.4rem' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#60a5fa', fontWeight: 600 }}>
+                      <Building2 size={15} /> {study.role}
                     </span>
-                    <button 
-                      onClick={() => handleToggle(study.id)}
-                      style={{
-                        background: 'transparent',
-                        border: 'none',
-                        color: currentState === 'after' ? '#10b981' : '#ef4444',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center'
-                      }}
-                      title="Toggle Architecture State"
-                    >
-                      {currentState === 'after' ? <ToggleRight size={34} /> : <ToggleLeft size={34} />}
-                    </button>
-                    <span style={{ fontSize: '0.85rem', fontWeight: 700, color: currentState === 'after' ? '#10b981' : '#6b7280' }}>
-                      AFTER (TRANSFORMED)
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <Calendar size={15} /> {study.period}
+                    </span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <MapPin size={15} /> {study.location}
                     </span>
                   </div>
                 </div>
 
-                {/* Metrics Pill Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+                {/* Metrics Pill Row */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
                   {study.impactMetrics.map((metric, i) => (
-                    <div key={i} style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '10px', padding: '0.85rem', textAlign: 'center' }}>
-                      <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#10b981' }}>{metric.value}</div>
-                      <div style={{ fontSize: '0.75rem', color: '#9ca3af', fontWeight: 600 }}>{metric.label}</div>
+                    <div key={i} style={{ background: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '10px', padding: '0.6rem 0.85rem', textAlign: 'center' }}>
+                      <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#10b981', lineHeight: 1 }}>{metric.value}</div>
+                      <div style={{ fontSize: '0.72rem', color: '#94a3b8', fontWeight: 600, marginTop: '0.2rem' }}>{metric.label}</div>
                     </div>
-                  ))}
-                </div>
-
-                {/* Active Architecture Display */}
-                <div style={{
-                  background: currentState === 'after' ? 'rgba(16, 185, 129, 0.04)' : 'rgba(239, 68, 68, 0.04)',
-                  border: currentState === 'after' ? '1px solid rgba(16, 185, 129, 0.2)' : '1px solid rgba(239, 68, 68, 0.2)',
-                  borderRadius: '14px',
-                  padding: '1.5rem',
-                  marginBottom: '1.75rem'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: currentState === 'after' ? '#34d399' : '#f87171', fontWeight: 700, fontSize: '1.1rem' }}>
-                    {currentState === 'after' ? <CheckCircle2 size={20} /> : <AlertTriangle size={20} />}
-                    {activeData.architectureTitle}
-                  </div>
-
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.75rem' }}>
-                    {activeData.points.map((point, pIdx) => (
-                      <div key={pIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: '#e5e7eb', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                        <span style={{ color: currentState === 'after' ? '#10b981' : '#ef4444', fontWeight: 'bold', marginTop: '2px' }}>
-                          {currentState === 'after' ? '✓' : '✗'}
-                        </span>
-                        <span>{point}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Tech Badges */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#9ca3af', fontWeight: 600, marginRight: '0.5rem' }}>Tech Ecosystem:</span>
-                  {study.tech.map((t) => (
-                    <span 
-                      key={t}
-                      style={{
-                        fontSize: '0.75rem',
-                        fontWeight: 600,
-                        padding: '0.25rem 0.65rem',
-                        borderRadius: '6px',
-                        background: 'rgba(99, 102, 241, 0.1)',
-                        color: '#a5b4fc',
-                        border: '1px solid rgba(99, 102, 241, 0.2)'
-                      }}
-                    >
-                      {t}
-                    </span>
                   ))}
                 </div>
               </div>
-            );
-          })}
+
+              {/* Side-by-Side Comparison Container */}
+              <div 
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: activeView === 'split' ? '1fr 1fr' : '1fr',
+                  gap: '1.5rem',
+                  marginBottom: '1.75rem'
+                }}
+                className="comparison-grid"
+              >
+                {/* BEFORE PANEL */}
+                {(activeView === 'split' || activeView === 'before') && (
+                  <div style={{
+                    background: 'rgba(244, 63, 94, 0.03)',
+                    border: '1px solid rgba(244, 63, 94, 0.25)',
+                    borderRadius: '14px',
+                    padding: '1.5rem'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: '#fb7185', fontWeight: 700, fontSize: '1.05rem' }}>
+                      <AlertTriangle size={18} />
+                      {study.before.architectureTitle}
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                      {study.before.points.map((pt, idx) => (
+                        <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: '#cbd5e1', fontSize: '0.9rem', lineHeight: 1.55 }}>
+                          <span style={{ color: '#f43f5e', fontWeight: 'bold', marginTop: '1px' }}>✗</span>
+                          <span>{pt}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* AFTER PANEL */}
+                {(activeView === 'split' || activeView === 'after') && (
+                  <div style={{
+                    background: 'rgba(16, 185, 129, 0.03)',
+                    border: '1px solid rgba(16, 185, 129, 0.25)',
+                    borderRadius: '14px',
+                    padding: '1.5rem'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: '#34d399', fontWeight: 700, fontSize: '1.05rem' }}>
+                      <CheckCircle2 size={18} />
+                      {study.after.architectureTitle}
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                      {study.after.points.map((pt, idx) => (
+                        <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: '#f8fafc', fontSize: '0.9rem', lineHeight: 1.55 }}>
+                          <span style={{ color: '#10b981', fontWeight: 'bold', marginTop: '1px' }}>✓</span>
+                          <span>{pt}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Tech Stack Badges */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center', borderTop: '1px solid var(--border-color)', paddingTop: '1.25rem' }}>
+                <span style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 600, marginRight: '0.5rem' }}>Technology Stack:</span>
+                {study.tech.map((t) => (
+                  <span 
+                    key={t}
+                    style={{
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      padding: '0.25rem 0.65rem',
+                      borderRadius: '6px',
+                      background: 'rgba(59, 130, 246, 0.1)',
+                      color: '#93c5fd',
+                      border: '1px solid rgba(59, 130, 246, 0.2)'
+                    }}
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 900px) {
+          .comparison-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

@@ -32,24 +32,25 @@ const Hero = ({ onOpenAdvisoryModal }) => {
           flexWrap: 'wrap',
           alignItems: 'center',
           gap: '0.75rem',
-          background: 'rgba(15, 23, 42, 0.8)',
-          border: '1px solid rgba(59, 130, 246, 0.3)',
+          background: '#ffffff',
+          border: '1px solid #cbd5e1',
           borderRadius: '9999px',
           padding: '0.4rem 1.25rem',
           fontSize: '0.82rem',
           marginBottom: '1.75rem',
-          color: '#cbd5e1'
+          color: '#334155',
+          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.03)'
         }}>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#10b981', fontWeight: 700 }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }} />
+          <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#059669', fontWeight: 700 }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#059669', boxShadow: '0 0 8px #059669' }} />
             Agentic DevOps Auto-PR: ACTIVE
           </span>
-          <span style={{ color: '#475569' }}>•</span>
+          <span style={{ color: '#cbd5e1' }}>•</span>
           <span>SLO Target: 99.99%</span>
-          <span style={{ color: '#475569' }}>•</span>
-          <span style={{ color: '#60a5fa', fontWeight: 600 }}>$3M+ Azure FinOps Saved</span>
-          <span style={{ color: '#475569' }}>•</span>
-          <span style={{ color: '#38bdf8' }}>IDP Catalog: Enabled</span>
+          <span style={{ color: '#cbd5e1' }}>•</span>
+          <span style={{ color: '#1e40af', fontWeight: 600 }}>$3M+ Azure FinOps Saved</span>
+          <span style={{ color: '#cbd5e1' }}>•</span>
+          <span style={{ color: '#0284c7', fontWeight: 600 }}>IDP Catalog: Enabled</span>
         </div>
 
         {/* Main Grid */}
@@ -61,7 +62,8 @@ const Hero = ({ onOpenAdvisoryModal }) => {
                 fontWeight: 800, 
                 lineHeight: 1.15, 
                 letterSpacing: '-0.03em',
-                marginBottom: '1.25rem'
+                marginBottom: '1.25rem',
+                color: '#0f172a'
               }}
             >
               Architecting <span className="gradient-text">Agentic DevOps</span> & Scalable <span className="gradient-text-cyan">Platform Engineering</span>
@@ -88,13 +90,14 @@ const Hero = ({ onOpenAdvisoryModal }) => {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.4rem',
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#ffffff',
+                    border: '1px solid #e2e8f0',
                     borderRadius: '8px',
                     padding: '0.4rem 0.8rem',
                     fontSize: '0.8rem',
                     fontWeight: 600,
-                    color: '#e5e7eb',
+                    color: '#334155',
+                    boxShadow: '0 1px 4px rgba(0,0,0,0.03)'
                   }}
                 >
                   <Award size={14} style={{ color: cert.color }} />
@@ -127,13 +130,13 @@ const Hero = ({ onOpenAdvisoryModal }) => {
           </div>
 
           {/* Right Visual / Key Stats Panel */}
-          <div className="glass-panel" style={{ padding: '2rem', position: 'relative' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#fff', fontWeight: 700, fontSize: '1rem' }}>
-                <Cpu style={{ color: '#3b82f6' }} size={20} />
+          <div className="glass-panel" style={{ padding: '2rem', position: 'relative', background: 'linear-gradient(145deg, #0f172a 0%, #1e293b 100%)', border: '1px solid #334155', boxShadow: '0 20px 40px -10px rgba(15, 23, 42, 0.25)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem', borderBottom: '1px solid #334155', paddingBottom: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#f8fafc', fontWeight: 700, fontSize: '1rem' }}>
+                <Cpu style={{ color: '#38bdf8' }} size={20} />
                 Enterprise Impact Summary
               </div>
-              <span className="badge-glow" style={{ fontSize: '0.75rem' }}>Principal Track Record</span>
+              <span className="badge-glow" style={{ fontSize: '0.75rem', background: 'rgba(37, 99, 235, 0.2)', color: '#60a5fa', border: '1px solid rgba(96, 165, 250, 0.3)' }}>Principal Track Record</span>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
@@ -141,16 +144,16 @@ const Hero = ({ onOpenAdvisoryModal }) => {
                 <div 
                   key={i} 
                   style={{
-                    background: 'rgba(15, 23, 42, 0.8)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: 'rgba(255, 255, 255, 0.06)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
                     borderRadius: '12px',
                     padding: '1.25rem 1rem',
                   }}
                 >
-                  <div className="gradient-text" style={{ fontSize: '1.8rem', fontWeight: 800, lineHeight: 1 }}>
+                  <div style={{ fontSize: '1.8rem', fontWeight: 800, lineHeight: 1, color: i === 0 ? '#38bdf8' : i === 1 ? '#34d399' : i === 2 ? '#fbbf24' : '#60a5fa' }}>
                     {stat.value}
                   </div>
-                  <div style={{ color: '#f8fafc', fontWeight: 600, fontSize: '0.88rem', marginTop: '0.3rem' }}>
+                  <div style={{ color: '#f8fafc', fontWeight: 600, fontSize: '0.88rem', marginTop: '0.4rem' }}>
                     {stat.label}
                   </div>
                   <div style={{ color: '#94a3b8', fontSize: '0.75rem', marginTop: '0.2rem' }}>
@@ -164,20 +167,20 @@ const Hero = ({ onOpenAdvisoryModal }) => {
             <div style={{ 
               marginTop: '1.5rem', 
               paddingTop: '1rem', 
-              borderTop: '1px solid var(--border-color)', 
+              borderTop: '1px solid #e2e8f0', 
               display: 'flex', 
               alignItems: 'center', 
-              justify: 'space-between',
+              justifyContent: 'space-between',
               fontSize: '0.8rem',
-              color: '#94a3b8'
+              color: '#64748b'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <span style={{
                   width: '8px',
                   height: '8px',
                   borderRadius: '50%',
-                  backgroundColor: '#10b981',
-                  boxShadow: '0 0 10px #10b981',
+                  backgroundColor: '#059669',
+                  boxShadow: '0 0 8px #059669',
                   display: 'inline-block'
                 }} />
                 Available for Advisory & Fractional Architecture

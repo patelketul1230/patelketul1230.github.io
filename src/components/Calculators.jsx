@@ -61,7 +61,7 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
           <span className="badge-glow" style={{ marginBottom: '0.75rem' }}>
             Interactive Strategy Tools
           </span>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem', color: '#0f172a' }}>
             DORA Assessment & Cloud FinOps Calculators
           </h2>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.05rem', marginTop: '0.75rem' }}>
@@ -73,23 +73,23 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', lgGridTemplateColumns: '1fr 1fr', gap: '2.5rem' }} className="calc-grid">
           
           {/* TOOL 1: DORA Metric Assessment */}
-          <div className="glass-panel" style={{ padding: '2.25rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
-              <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(99, 102, 241, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#6366f1' }}>
+          <div className="glass-panel" style={{ padding: '2.25rem', background: '#ffffff' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '1rem' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: '#eff6ff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2563eb' }}>
                 <BarChart2 size={22} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff' }}>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0f172a' }}>
                   DORA Maturity Scorecard
                 </h3>
-                <p style={{ fontSize: '0.8rem', color: '#9ca3af' }}>Google DORA & SRE Benchmarking Tool</p>
+                <p style={{ fontSize: '0.8rem', color: '#64748b' }}>Google DORA & SRE Benchmarking Tool</p>
               </div>
             </div>
 
             {/* Inputs */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2rem' }}>
               <div>
-                <label style={{ fontSize: '0.88rem', color: '#e5e7eb', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                <label style={{ fontSize: '0.88rem', color: '#1e293b', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                   1. Deployment Frequency
                 </label>
                 <select 
@@ -99,9 +99,9 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
                     width: '100%',
                     padding: '0.65rem',
                     borderRadius: '8px',
-                    background: 'rgba(0,0,0,0.4)',
-                    border: '1px solid var(--border-color)',
-                    color: '#fff',
+                    background: '#ffffff',
+                    border: '1px solid #cbd5e1',
+                    color: '#0f172a',
                     outline: 'none'
                   }}
                 >
@@ -113,7 +113,7 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.88rem', color: '#e5e7eb', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                <label style={{ fontSize: '0.88rem', color: '#1e293b', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                   2. Lead Time for Changes (Commit to Production)
                 </label>
                 <select 
@@ -123,9 +123,9 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
                     width: '100%',
                     padding: '0.65rem',
                     borderRadius: '8px',
-                    background: 'rgba(0,0,0,0.4)',
-                    border: '1px solid var(--border-color)',
-                    color: '#fff',
+                    background: '#ffffff',
+                    border: '1px solid #cbd5e1',
+                    color: '#0f172a',
                     outline: 'none'
                   }}
                 >
@@ -137,7 +137,7 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.88rem', color: '#e5e7eb', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                <label style={{ fontSize: '0.88rem', color: '#1e293b', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                   3. Mean Time to Restore (MTTR Incident Recovery)
                 </label>
                 <select 
@@ -147,9 +147,9 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
                     width: '100%',
                     padding: '0.65rem',
                     borderRadius: '8px',
-                    background: 'rgba(0,0,0,0.4)',
-                    border: '1px solid var(--border-color)',
-                    color: '#fff',
+                    background: '#ffffff',
+                    border: '1px solid #cbd5e1',
+                    color: '#0f172a',
                     outline: 'none'
                   }}
                 >
@@ -161,7 +161,7 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.88rem', color: '#e5e7eb', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                <label style={{ fontSize: '0.88rem', color: '#1e293b', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                   4. Change Failure Rate
                 </label>
                 <select 
@@ -171,9 +171,9 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
                     width: '100%',
                     padding: '0.65rem',
                     borderRadius: '8px',
-                    background: 'rgba(0,0,0,0.4)',
-                    border: '1px solid var(--border-color)',
-                    color: '#fff',
+                    background: '#ffffff',
+                    border: '1px solid #cbd5e1',
+                    color: '#0f172a',
                     outline: 'none'
                   }}
                 >
@@ -187,16 +187,16 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
 
             {/* Output Card */}
             <div style={{
-              background: 'rgba(0,0,0,0.3)',
+              background: '#f8fafc',
               border: `1px solid ${doraResult.color}50`,
               borderRadius: '12px',
               padding: '1.25rem'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                <span style={{ fontSize: '0.8rem', color: '#9ca3af', fontWeight: 600 }}>ASSESSED DORA TIER:</span>
+                <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>ASSESSED DORA TIER:</span>
                 <span style={{ fontSize: '1.05rem', fontWeight: 800, color: doraResult.color }}>{doraResult.tier}</span>
               </div>
-              <p style={{ fontSize: '0.85rem', color: '#d1d5db', lineHeight: 1.5, marginBottom: '1rem' }}>
+              <p style={{ fontSize: '0.85rem', color: '#334155', lineHeight: 1.5, marginBottom: '1rem' }}>
                 {doraResult.desc}
               </p>
               <button 
@@ -212,26 +212,26 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
 
 
           {/* TOOL 2: Cloud FinOps Savings Estimator */}
-          <div className="glass-panel" style={{ padding: '2.25rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
-              <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(16, 185, 129, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981' }}>
+          <div className="glass-panel" style={{ padding: '2.25rem', background: '#ffffff' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '1rem' }}>
+              <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: '#ecfdf5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#059669' }}>
                 <DollarSign size={22} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff' }}>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0f172a' }}>
                   Cloud FinOps ROI Estimator
                 </h3>
-                <p style={{ fontSize: '0.8rem', color: '#9ca3af' }}>Based on $3M+ Azure Cost Reduction Strategy</p>
+                <p style={{ fontSize: '0.8rem', color: '#64748b' }}>Based on $3M+ Azure Cost Reduction Strategy</p>
               </div>
             </div>
 
             {/* Slider */}
             <div style={{ marginBottom: '2rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-                <label style={{ fontSize: '0.9rem', color: '#e5e7eb', fontWeight: 600 }}>
+                <label style={{ fontSize: '0.9rem', color: '#1e293b', fontWeight: 600 }}>
                   Annual AWS / Azure Cloud Spend:
                 </label>
-                <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#38bdf8' }}>
+                <span style={{ fontSize: '1.3rem', fontWeight: 800, color: '#0284c7' }}>
                   ${(cloudSpend / 1000).toFixed(2)}M / year
                 </span>
               </div>
@@ -245,13 +245,13 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
                 onChange={(e) => setCloudSpend(Number(e.target.value))}
                 style={{
                   width: '100%',
-                  accentColor: '#10b981',
+                  accentColor: '#059669',
                   cursor: 'pointer',
                   height: '8px',
                   borderRadius: '4px'
                 }}
               />
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#6b7280', marginTop: '0.4rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#64748b', marginTop: '0.4rem' }}>
                 <span>$200K / yr</span>
                 <span>$5M / yr</span>
                 <span>$10M+ / yr</span>
@@ -260,36 +260,36 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
 
             {/* Estimated Savings Display */}
             <div style={{
-              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%)',
-              border: '1px solid rgba(16, 185, 129, 0.3)',
+              background: 'linear-gradient(135deg, #ecfdf5 0%, #f0f9ff 100%)',
+              border: '1px solid #a7f3d0',
               borderRadius: '14px',
               padding: '1.5rem',
               textAlign: 'center',
               marginBottom: '1.75rem'
             }}>
-              <span style={{ fontSize: '0.8rem', color: '#9ca3af', fontWeight: 700, letterSpacing: '0.05em' }}>
+              <span style={{ fontSize: '0.8rem', color: '#475569', fontWeight: 700, letterSpacing: '0.05em' }}>
                 PROJECTED ANNUAL INFRASTRUCTURE SAVINGS
               </span>
               <div className="gradient-text-emerald" style={{ fontSize: '2.5rem', fontWeight: 800, margin: '0.2rem 0' }}>
                 ${(minSavings).toLocaleString()} - ${(maxSavings).toLocaleString()}
               </div>
-              <p style={{ fontSize: '0.82rem', color: '#d1d5db' }}>
+              <p style={{ fontSize: '0.82rem', color: '#334155' }}>
                 Typical 20% to 35% cost reduction achieved through Kubernetes rightsizing, reserved instance optimization, and automated waste elimination.
               </p>
             </div>
 
             {/* Key Optimization Pillars */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.85rem', color: '#e5e7eb' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.85rem', color: '#1e293b' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <CheckCircle2 size={16} style={{ color: '#10b981' }} />
+                <CheckCircle2 size={16} style={{ color: '#059669' }} />
                 <span>Kubernetes Node Pool & Pod Resource Requests Optimization</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <CheckCircle2 size={16} style={{ color: '#10b981' }} />
+                <CheckCircle2 size={16} style={{ color: '#059669' }} />
                 <span>Azure & AWS Orphaned Storage & Unattached Elastic IP Cleanup</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <CheckCircle2 size={16} style={{ color: '#10b981' }} />
+                <CheckCircle2 size={16} style={{ color: '#059669' }} />
                 <span>Automated Off-Hours Environment Shutdown Automation</span>
               </div>
             </div>
@@ -297,7 +297,7 @@ const Calculators = ({ onOpenAdvisoryModal }) => {
             <button 
               onClick={() => { triggerConfetti(); onOpenAdvisoryModal(); }}
               className="btn-primary" 
-              style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem', padding: '0.6rem', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)' }}
+              style={{ width: '100%', justifyContent: 'center', fontSize: '0.85rem', padding: '0.6rem', background: 'linear-gradient(135deg, #059669 0%, #047857 100%)' }}
             >
               Request FinOps Infrastructure Audit
               <TrendingUp size={16} />

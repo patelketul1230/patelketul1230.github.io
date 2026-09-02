@@ -1,21 +1,22 @@
-/* Enterprise Platform & SRE Advisory - Executive Slate & Navy Aesthetic */
+/* Enterprise Platform & SRE Advisory - Executive Light Theme */
 
 :root {
-  --bg-primary: #0b1120;
-  --bg-secondary: #0f172a;
-  --bg-card: rgba(30, 41, 59, 0.7);
-  --bg-card-hover: rgba(51, 65, 85, 0.8);
-  --border-color: rgba(255, 255, 255, 0.1);
-  --border-accent: rgba(59, 130, 246, 0.4);
+  --bg-primary: #f1f5f9; /* Soft Slate-100 Background - Prevents glare */
+  --bg-secondary: #ffffff; /* Pure White Card Canvas */
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --border-color: #cbd5e1; /* Crisp Slate Border */
+  --border-accent: #94a3b8;
   
-  --color-primary: #3b82f6; /* Electric Royal Blue */
-  --color-secondary: #06b6d4; /* Cyber Cyan */
-  --color-emerald: #10b981; /* Emerald Success */
-  --color-amber: #f59e0b; /* Executive Gold */
-  --color-rose: #f43f5e; /* Alert Rose */
-  --color-text-main: #f8fafc;
-  --color-text-muted: #94a3b8;
-  --color-text-dark: #64748b;
+  --color-primary: #2563eb; /* Executive Royal Blue */
+  --color-primary-dark: #1e40af;
+  --color-secondary: #0284c7; /* Sky Blue */
+  --color-emerald: #059669; /* Rich Emerald Success */
+  --color-amber: #d97706; /* Executive Gold */
+  --color-rose: #dc2626; /* Alert Crimson */
+  --color-text-main: #0f172a; /* Slate 900 - Crisp Dark Text */
+  --color-text-muted: #334155; /* Slate 700 - Soft Readable Body Text */
+  --color-text-dark: #475569; /* Slate 600 - Secondary Labels */
   
   --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -40,9 +41,9 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 90% 90%, rgba(6, 182, 212, 0.06) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8) 0%, transparent 100%);
+    radial-gradient(circle at 10% 10%, rgba(37, 99, 235, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 90% 90%, rgba(13, 148, 136, 0.04) 0%, transparent 50%),
+    linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 100%);
   background-attachment: fixed;
 }
 
@@ -54,7 +55,7 @@ body {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -64,34 +65,32 @@ body {
 /* Glass & Card Panels */
 .glass-panel {
   background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-panel:hover {
-  border-color: var(--border-accent);
+  border-color: #cbd5e1;
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.18);
+  box-shadow: 0 12px 30px -4px rgba(15, 23, 42, 0.1);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 40%, #60a5fa 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-emerald {
-  background: linear-gradient(135deg, #6ee7b7 0%, #10b981 50%, #047857 100%);
+  background: linear-gradient(135deg, #065f46 0%, #059669 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-cyan {
-  background: linear-gradient(135deg, #7dd3fc 0%, #06b6d4 50%, #0369a1 100%);
+  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -100,7 +99,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
   color: #ffffff;
   font-weight: 600;
   padding: 0.75rem 1.5rem;
@@ -109,12 +108,12 @@ body {
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.35);
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.5);
+  box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.35);
   color: #ffffff;
 }
 
@@ -122,21 +121,23 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--color-text-main);
+  background: #ffffff;
+  color: #1e293b;
   font-weight: 600;
   padding: 0.75rem 1.5rem;
   border-radius: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid #cbd5e1;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+  transform: translateY(-1px);
 }
 
 .badge-glow {
@@ -147,21 +148,35 @@ body {
   border-radius: 9999px;
   font-size: 0.8rem;
   font-weight: 600;
-  background: rgba(59, 130, 246, 0.12);
-  color: #93c5fd;
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
 }
 
 .badge-emerald {
-  background: rgba(16, 185, 129, 0.12);
-  color: #6ee7b7;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
 }
 
 .badge-cyan {
-  background: rgba(6, 182, 212, 0.12);
-  color: #7dd3fc;
-  border: 1px solid rgba(6, 182, 212, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #f0f9ff;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
 }
 
 /* Container */
@@ -170,3 +185,4 @@ body {
   margin: 0 auto;
   padding: 0 1.5rem;
 }
+

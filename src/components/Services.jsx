@@ -83,7 +83,7 @@ const Services = ({ onOpenAdvisoryModal }) => {
           <span className="badge-glow" style={{ marginBottom: '0.75rem' }}>
             Enterprise Capabilities
           </span>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem', color: '#0f172a' }}>
             Advisory & Architecture Pillars
           </h2>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.05rem', marginTop: '0.75rem' }}>
@@ -95,6 +95,7 @@ const Services = ({ onOpenAdvisoryModal }) => {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', lgGridTemplateColumns: 'repeat(3, 1fr)', gap: '1.75rem' }} className="services-grid">
           {pillars.map((pillar) => {
             const Icon = pillar.icon;
+            const softBg = pillar.color === '#6366f1' ? '#eef2ff' : pillar.color === '#06b6d4' ? '#ecfeff' : pillar.color === '#10b981' ? '#ecfdf5' : pillar.color === '#f59e0b' ? '#fffbeb' : '#fdf2f8';
             return (
               <div 
                 key={pillar.id}
@@ -103,9 +104,10 @@ const Services = ({ onOpenAdvisoryModal }) => {
                   padding: '2rem',
                   display: 'flex',
                   flexDirection: 'column',
-                  justify: 'space-between',
+                  justifyContent: 'space-between',
                   position: 'relative',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  background: '#ffffff'
                 }}
               >
                 {/* Glow accent bar */}
@@ -124,11 +126,11 @@ const Services = ({ onOpenAdvisoryModal }) => {
                       width: '48px',
                       height: '48px',
                       borderRadius: '12px',
-                      background: `rgba(${pillar.color === '#6366f1' ? '99, 102, 241' : pillar.color === '#06b6d4' ? '6, 182, 212' : pillar.color === '#10b981' ? '16, 185, 129' : pillar.color === '#f59e0b' ? '245, 158, 11' : '236, 72, 153'}, 0.15)`,
-                      border: `1px solid ${pillar.color}40`,
+                      background: softBg,
+                      border: `1px solid ${pillar.color}30`,
                       display: 'flex',
                       alignItems: 'center',
-                      justify: 'center',
+                      justifyContent: 'center',
                       color: pillar.color
                     }}>
                       <Icon size={24} />
@@ -138,15 +140,15 @@ const Services = ({ onOpenAdvisoryModal }) => {
                       fontWeight: 700,
                       padding: '0.3rem 0.65rem',
                       borderRadius: '6px',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                      background: '#f1f5f9',
+                      border: '1px solid #e2e8f0',
                       color: pillar.color
                     }}>
                       {pillar.highlight}
                     </span>
                   </div>
 
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fff', marginBottom: '0.75rem', lineHeight: 1.3 }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.75rem', lineHeight: 1.3 }}>
                     {pillar.title}
                   </h3>
 
@@ -157,7 +159,7 @@ const Services = ({ onOpenAdvisoryModal }) => {
                   {/* Bullet points */}
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.75rem' }}>
                     {pillar.capabilities.map((cap, idx) => (
-                      <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.85rem', color: '#e5e7eb' }}>
+                      <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.85rem', color: '#334155' }}>
                         <CheckCircle2 size={15} style={{ color: pillar.color, flexShrink: 0, marginTop: '2px' }} />
                         <span>{cap}</span>
                       </div>
@@ -168,9 +170,9 @@ const Services = ({ onOpenAdvisoryModal }) => {
                 <button 
                   onClick={onOpenAdvisoryModal}
                   style={{
-                    background: 'transparent',
-                    border: '1px solid var(--border-color)',
-                    color: '#f3f4f6',
+                    background: '#ffffff',
+                    border: '1px solid #cbd5e1',
+                    color: '#1e293b',
                     padding: '0.65rem 1rem',
                     borderRadius: '10px',
                     fontSize: '0.85rem',
@@ -178,17 +180,18 @@ const Services = ({ onOpenAdvisoryModal }) => {
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
-                    justify: 'space-between',
+                    justifyContent: 'space-between',
                     width: '100%',
-                    transition: 'all 0.2s ease'
+                    transition: 'all 0.2s ease',
+                    boxShadow: '0 1px 4px rgba(0,0,0,0.02)'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = pillar.color;
                     e.currentTarget.style.color = pillar.color;
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'var(--border-color)';
-                    e.currentTarget.style.color = '#f3f4f6';
+                    e.currentTarget.style.borderColor = '#cbd5e1';
+                    e.currentTarget.style.color = '#1e293b';
                   }}
                 >
                   <span>Request Strategy Audit</span>

@@ -60,14 +60,14 @@ const TechStack = () => {
   });
 
   return (
-    <section id="techstack" style={{ padding: '5.5rem 0', background: 'rgba(15, 23, 42, 0.5)' }}>
+    <section id="techstack" style={{ padding: '5.5rem 0', background: '#f8fafc' }}>
       <div className="container-custom">
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 3.5rem auto' }}>
           <span className="badge-glow" style={{ marginBottom: '0.75rem' }}>
             Technical Proficiency
           </span>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem', color: '#0f172a' }}>
             Enterprise Technology & Tooling Matrix
           </h2>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.05rem', marginTop: '0.75rem' }}>
@@ -90,9 +90,9 @@ const TechStack = () => {
                 width: '100%',
                 padding: '0.55rem 0.8rem 0.55rem 2.4rem',
                 borderRadius: '10px',
-                background: 'rgba(15, 23, 42, 0.8)',
-                border: '1px solid var(--border-color)',
-                color: '#fff',
+                background: '#ffffff',
+                border: '1px solid #cbd5e1',
+                color: '#0f172a',
                 fontSize: '0.85rem',
                 outline: 'none'
               }}
@@ -110,11 +110,12 @@ const TechStack = () => {
                   borderRadius: '9999px',
                   fontSize: '0.8rem',
                   fontWeight: 600,
-                  border: activeCategory === cat ? '1px solid #3b82f6' : '1px solid var(--border-color)',
-                  background: activeCategory === cat ? 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)' : 'rgba(255, 255, 255, 0.04)',
-                  color: '#fff',
+                  border: activeCategory === cat ? '1px solid #1d4ed8' : '1px solid #cbd5e1',
+                  background: activeCategory === cat ? 'linear-gradient(135deg, #1e40af 0%, #2563eb 100%)' : '#ffffff',
+                  color: activeCategory === cat ? '#ffffff' : '#475569',
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease'
+                  transition: 'all 0.2s ease',
+                  boxShadow: activeCategory === cat ? '0 4px 12px rgba(37, 99, 235, 0.2)' : '0 1px 3px rgba(0,0,0,0.02)'
                 }}
               >
                 {cat}
@@ -134,14 +135,15 @@ const TechStack = () => {
                   padding: '1.25rem',
                   display: 'flex',
                   flexDirection: 'column',
-                  justify: 'space-between'
+                  justifyContent: 'space-between',
+                  background: '#ffffff'
                 }}
               >
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                       <span style={{ fontSize: '1.3rem' }}>{skill.icon}</span>
-                      <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>
+                      <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a' }}>
                         {skill.name}
                       </h3>
                     </div>
@@ -150,19 +152,19 @@ const TechStack = () => {
                     </span>
                   </div>
 
-                  <p style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '0.75rem' }}>
+                  <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: 1.5, marginBottom: '0.75rem' }}>
                     {skill.details}
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '0.6rem', fontSize: '0.75rem', color: '#60a5fa', fontWeight: 600 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #e2e8f0', paddingTop: '0.6rem', fontSize: '0.75rem', color: '#1d4ed8', fontWeight: 600 }}>
                   <span>{skill.category}</span>
-                  <CheckCircle2 size={14} style={{ color: '#10b981' }} />
+                  <CheckCircle2 size={14} style={{ color: '#059669' }} />
                 </div>
               </div>
             ))
           ) : (
-            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: '#94a3b8' }}>
+            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '3rem', color: '#64748b' }}>
               No tools found matching "{searchQuery}". Try searching for Kubernetes, Terraform, or SRE.
             </div>
           )}

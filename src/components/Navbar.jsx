@@ -30,10 +30,11 @@ const Navbar = ({ onOpenAdvisoryModal }) => {
         right: 0,
         zIndex: 1000,
         transition: 'all 0.3s ease',
-        background: scrolled ? 'rgba(11, 15, 23, 0.88)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
+        background: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.75)',
+        backdropFilter: 'blur(16px)',
+        borderBottom: scrolled ? '1px solid #e2e8f0' : '1px solid rgba(226, 232, 240, 0.5)',
         padding: scrolled ? '0.85rem 0' : '1.25rem 0',
+        boxShadow: scrolled ? '0 4px 20px rgba(0, 0, 0, 0.04)' : 'none'
       }}
     >
       <div className="container-custom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -43,22 +44,22 @@ const Navbar = ({ onOpenAdvisoryModal }) => {
             width: '40px',
             height: '40px',
             borderRadius: '10px',
-            background: 'linear-gradient(135deg, #6366f1 0%, #06b6d4 100%)',
+            background: 'linear-gradient(135deg, #1e40af 0%, #2563eb 100%)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: '#fff',
             fontWeight: 'bold',
             fontSize: '1.2rem',
-            boxShadow: '0 4px 12px rgba(99, 102, 241, 0.4)'
+            boxShadow: '0 4px 12px rgba(37, 99, 235, 0.25)'
           }}>
             KP
           </div>
           <div>
-            <div style={{ color: '#fff', fontWeight: 800, fontSize: '1.1rem', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+            <div style={{ color: '#0f172a', fontWeight: 800, fontSize: '1.1rem', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Ketul Patel
             </div>
-            <div style={{ color: '#9ca3af', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+            <div style={{ color: '#64748b', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
               Principal Platform & SRE Architect
             </div>
           </div>
@@ -73,19 +74,19 @@ const Navbar = ({ onOpenAdvisoryModal }) => {
                 key={link.name}
                 href={link.href}
                 style={{
-                  color: '#d1d5db',
+                  color: '#475569',
                   textDecoration: 'none',
                   fontSize: '0.88rem',
-                  fontWeight: 500,
+                  fontWeight: 600,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '0.4rem',
                   transition: 'color 0.2s ease',
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#6366f1')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#d1d5db')}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#1d4ed8')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#475569')}
               >
-                <Icon size={15} style={{ color: '#6366f1' }} />
+                <Icon size={15} style={{ color: '#2563eb' }} />
                 {link.name}
               </a>
             );
@@ -109,7 +110,7 @@ const Navbar = ({ onOpenAdvisoryModal }) => {
             style={{
               background: 'transparent',
               border: 'none',
-              color: '#fff',
+              color: '#0f172a',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -131,9 +132,10 @@ const Navbar = ({ onOpenAdvisoryModal }) => {
             top: '100%',
             left: 0,
             right: 0,
-            background: 'rgba(11, 15, 23, 0.96)',
+            background: 'rgba(255, 255, 255, 0.98)',
             backdropFilter: 'blur(20px)',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+            borderBottom: '1px solid #e2e8f0',
+            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.08)',
             padding: '1.5rem',
             display: 'flex',
             flexDirection: 'column',
@@ -146,7 +148,7 @@ const Navbar = ({ onOpenAdvisoryModal }) => {
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               style={{
-                color: '#f3f4f6',
+                color: '#0f172a',
                 textDecoration: 'none',
                 fontSize: '1rem',
                 fontWeight: 600,
@@ -156,7 +158,7 @@ const Navbar = ({ onOpenAdvisoryModal }) => {
                 padding: '0.5rem 0',
               }}
             >
-              <link.icon size={18} style={{ color: '#6366f1' }} />
+              <link.icon size={18} style={{ color: '#2563eb' }} />
               {link.name}
             </a>
           ))}

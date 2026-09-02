@@ -88,7 +88,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
         right: 0,
         bottom: 0,
         zIndex: 2000,
-        background: 'rgba(5, 8, 15, 0.85)',
+        background: 'rgba(15, 23, 42, 0.6)',
         backdropFilter: 'blur(16px)',
         display: 'flex',
         alignItems: 'center',
@@ -105,8 +105,9 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
           maxWidth: '620px',
           padding: '2.5rem',
           position: 'relative',
-          background: 'rgba(15, 23, 42, 0.95)',
-          border: '1px solid rgba(59, 130, 246, 0.3)',
+          background: '#ffffff',
+          border: '1px solid #e2e8f0',
+          boxShadow: '0 20px 40px rgba(15, 23, 42, 0.15)',
           maxHeight: '90vh',
           overflowY: 'auto'
         }}
@@ -121,7 +122,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
             right: '1.5rem',
             background: 'transparent',
             border: 'none',
-            color: '#94a3b8',
+            color: '#64748b',
             cursor: 'pointer'
           }}
         >
@@ -131,11 +132,11 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
         {!submitted ? (
           <>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
-              <Sparkles size={20} style={{ color: '#3b82f6' }} />
+              <Sparkles size={20} style={{ color: '#2563eb' }} />
               <span className="badge-glow" style={{ fontSize: '0.8rem' }}>Executive Advisory Consultation</span>
             </div>
 
-            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+            <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.5rem' }}>
               Schedule an Advisory Session
             </h2>
 
@@ -146,7 +147,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }} className="form-grid">
                 <div>
-                  <label style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                  <label style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                     Your Name *
                   </label>
                   <div style={{ position: 'relative' }}>
@@ -161,9 +162,9 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
                         width: '100%',
                         padding: '0.65rem 0.8rem 0.65rem 2.5rem',
                         borderRadius: '8px',
-                        background: 'rgba(0,0,0,0.4)',
-                        border: '1px solid var(--border-color)',
-                        color: '#fff',
+                        background: '#ffffff',
+                        border: '1px solid #cbd5e1',
+                        color: '#0f172a',
                         outline: 'none'
                       }}
                     />
@@ -171,7 +172,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                  <label style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                     Organization / Company *
                   </label>
                   <div style={{ position: 'relative' }}>
@@ -186,9 +187,9 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
                         width: '100%',
                         padding: '0.65rem 0.8rem 0.65rem 2.5rem',
                         borderRadius: '8px',
-                        background: 'rgba(0,0,0,0.4)',
-                        border: '1px solid var(--border-color)',
-                        color: '#fff',
+                        background: '#ffffff',
+                        border: '1px solid #cbd5e1',
+                        color: '#0f172a',
                         outline: 'none'
                       }}
                     />
@@ -197,7 +198,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                <label style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                   Work Email Address *
                 </label>
                 <div style={{ position: 'relative' }}>
@@ -212,9 +213,9 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
                       width: '100%',
                       padding: '0.65rem 0.8rem 0.65rem 2.5rem',
                       borderRadius: '8px',
-                      background: 'rgba(0,0,0,0.4)',
-                      border: '1px solid var(--border-color)',
-                      color: '#fff',
+                      background: '#ffffff',
+                      border: '1px solid #cbd5e1',
+                      color: '#0f172a',
                       outline: 'none'
                     }}
                   />
@@ -222,7 +223,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                <label style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                   Primary Advisory Interest
                 </label>
                 <select 
@@ -232,9 +233,9 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
                     width: '100%',
                     padding: '0.65rem',
                     borderRadius: '8px',
-                    background: 'rgba(0,0,0,0.4)',
-                    border: '1px solid var(--border-color)',
-                    color: '#fff',
+                    background: '#ffffff',
+                    border: '1px solid #cbd5e1',
+                    color: '#0f172a',
                     outline: 'none'
                   }}
                 >
@@ -248,7 +249,7 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
+                <label style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600, display: 'block', marginBottom: '0.4rem' }}>
                   Project Overview / Challenges
                 </label>
                 <textarea 
@@ -260,9 +261,9 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
                     width: '100%',
                     padding: '0.8rem',
                     borderRadius: '8px',
-                    background: 'rgba(0,0,0,0.4)',
-                    border: '1px solid var(--border-color)',
-                    color: '#fff',
+                    background: '#ffffff',
+                    border: '1px solid #cbd5e1',
+                    color: '#0f172a',
                     outline: 'none',
                     resize: 'vertical'
                   }}
@@ -286,18 +287,18 @@ const AdvisoryModal = ({ isOpen, onClose }) => {
               width: '68px',
               height: '68px',
               borderRadius: '50%',
-              background: 'rgba(16, 185, 129, 0.15)',
-              border: '2px solid #10b981',
+              background: '#ecfdf5',
+              border: '2px solid #059669',
               display: 'flex',
               alignItems: 'center',
               justify: 'center',
-              color: '#10b981',
+              color: '#059669',
               margin: '0 auto 1.5rem auto'
             }}>
               <CheckCircle2 size={38} />
             </div>
             
-            <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', marginBottom: '0.75rem' }}>
+            <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', marginBottom: '0.75rem' }}>
               Thank You for the Request!
             </h3>
             

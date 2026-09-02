@@ -103,14 +103,14 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
   ];
 
   return (
-    <section id="casestudies" style={{ padding: '5.5rem 0', background: 'rgba(15, 23, 42, 0.5)' }}>
+    <section id="casestudies" style={{ padding: '5.5rem 0', background: '#f8fafc' }}>
       <div className="container-custom">
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3.5rem auto' }}>
           <span className="badge-glow" style={{ marginBottom: '0.75rem' }}>
             Executive Advisory Impact
           </span>
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem', color: '#0f172a' }}>
             Enterprise Case Studies & Transformations
           </h2>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.05rem', marginTop: '0.75rem' }}>
@@ -118,7 +118,7 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
           </p>
 
           {/* View Filter Mode Selector */}
-          <div style={{ display: 'inline-flex', gap: '0.4rem', background: 'rgba(0,0,0,0.3)', padding: '0.35rem', borderRadius: '10px', marginTop: '1.5rem', border: '1px solid var(--border-color)' }}>
+          <div style={{ display: 'inline-flex', gap: '0.4rem', background: '#ffffff', padding: '0.35rem', borderRadius: '10px', marginTop: '1.5rem', border: '1px solid #cbd5e1', boxShadow: '0 2px 8px rgba(0,0,0,0.03)' }}>
             <button 
               onClick={() => setActiveView('split')}
               style={{
@@ -127,8 +127,8 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
                 fontSize: '0.8rem',
                 fontWeight: 600,
                 border: 'none',
-                background: activeView === 'split' ? '#3b82f6' : 'transparent',
-                color: activeView === 'split' ? '#fff' : '#94a3b8',
+                background: activeView === 'split' ? '#1e40af' : 'transparent',
+                color: activeView === 'split' ? '#fff' : '#64748b',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
@@ -145,8 +145,8 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
                 fontSize: '0.8rem',
                 fontWeight: 600,
                 border: 'none',
-                background: activeView === 'after' ? '#10b981' : 'transparent',
-                color: activeView === 'after' ? '#fff' : '#94a3b8',
+                background: activeView === 'after' ? '#059669' : 'transparent',
+                color: activeView === 'after' ? '#fff' : '#64748b',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
@@ -163,8 +163,8 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
                 fontSize: '0.8rem',
                 fontWeight: 600,
                 border: 'none',
-                background: activeView === 'before' ? '#f43f5e' : 'transparent',
-                color: activeView === 'before' ? '#fff' : '#94a3b8',
+                background: activeView === 'before' ? '#dc2626' : 'transparent',
+                color: activeView === 'before' ? '#fff' : '#64748b',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
@@ -182,17 +182,17 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
             <div 
               key={study.id}
               className="glass-panel"
-              style={{ padding: '2.25rem' }}
+              style={{ padding: '2.25rem', background: '#ffffff' }}
             >
               {/* Card Header Info */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1.5rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1.5rem', marginBottom: '1.5rem', borderBottom: '1px solid #e2e8f0', paddingBottom: '1.25rem' }}>
                 <div>
                   <span className="badge-glow" style={{ marginBottom: '0.5rem' }}>{study.tag}</span>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', marginTop: '0.3rem' }}>
+                  <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#0f172a', marginTop: '0.3rem' }}>
                     {study.company}
                   </h3>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', color: '#94a3b8', fontSize: '0.88rem', marginTop: '0.4rem' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#60a5fa', fontWeight: 600 }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', color: '#64748b', fontSize: '0.88rem', marginTop: '0.4rem' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#1d4ed8', fontWeight: 600 }}>
                       <Building2 size={15} /> {study.role}
                     </span>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
@@ -207,9 +207,9 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
                 {/* Metrics Pill Row */}
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
                   {study.impactMetrics.map((metric, i) => (
-                    <div key={i} style={{ background: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '10px', padding: '0.6rem 0.85rem', textAlign: 'center' }}>
-                      <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#10b981', lineHeight: 1 }}>{metric.value}</div>
-                      <div style={{ fontSize: '0.72rem', color: '#94a3b8', fontWeight: 600, marginTop: '0.2rem' }}>{metric.label}</div>
+                    <div key={i} style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '10px', padding: '0.6rem 0.85rem', textAlign: 'center' }}>
+                      <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#059669', lineHeight: 1 }}>{metric.value}</div>
+                      <div style={{ fontSize: '0.72rem', color: '#475569', fontWeight: 600, marginTop: '0.2rem' }}>{metric.label}</div>
                     </div>
                   ))}
                 </div>
@@ -228,20 +228,20 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
                 {/* BEFORE PANEL */}
                 {(activeView === 'split' || activeView === 'before') && (
                   <div style={{
-                    background: 'rgba(244, 63, 94, 0.03)',
-                    border: '1px solid rgba(244, 63, 94, 0.25)',
+                    background: '#fff1f2',
+                    border: '1px solid #fecdd3',
                     borderRadius: '14px',
                     padding: '1.5rem'
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: '#fb7185', fontWeight: 700, fontSize: '1.05rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: '#e11d48', fontWeight: 700, fontSize: '1.05rem' }}>
                       <AlertTriangle size={18} />
                       {study.before.architectureTitle}
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                       {study.before.points.map((pt, idx) => (
-                        <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: '#cbd5e1', fontSize: '0.9rem', lineHeight: 1.55 }}>
-                          <span style={{ color: '#f43f5e', fontWeight: 'bold', marginTop: '1px' }}>✗</span>
+                        <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: '#334155', fontSize: '0.9rem', lineHeight: 1.55 }}>
+                          <span style={{ color: '#dc2626', fontWeight: 'bold', marginTop: '1px' }}>✗</span>
                           <span>{pt}</span>
                         </div>
                       ))}
@@ -252,20 +252,20 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
                 {/* AFTER PANEL */}
                 {(activeView === 'split' || activeView === 'after') && (
                   <div style={{
-                    background: 'rgba(16, 185, 129, 0.03)',
-                    border: '1px solid rgba(16, 185, 129, 0.25)',
+                    background: '#ecfdf5',
+                    border: '1px solid #a7f3d0',
                     borderRadius: '14px',
                     padding: '1.5rem'
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: '#34d399', fontWeight: 700, fontSize: '1.05rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: '#047857', fontWeight: 700, fontSize: '1.05rem' }}>
                       <CheckCircle2 size={18} />
                       {study.after.architectureTitle}
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                       {study.after.points.map((pt, idx) => (
-                        <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: '#f8fafc', fontSize: '0.9rem', lineHeight: 1.55 }}>
-                          <span style={{ color: '#10b981', fontWeight: 'bold', marginTop: '1px' }}>✓</span>
+                        <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', color: '#0f172a', fontSize: '0.9rem', lineHeight: 1.55 }}>
+                          <span style={{ color: '#059669', fontWeight: 'bold', marginTop: '1px' }}>✓</span>
                           <span>{pt}</span>
                         </div>
                       ))}
@@ -275,8 +275,8 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
               </div>
 
               {/* Tech Stack Badges */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center', borderTop: '1px solid var(--border-color)', paddingTop: '1.25rem' }}>
-                <span style={{ fontSize: '0.8rem', color: '#94a3b8', fontWeight: 600, marginRight: '0.5rem' }}>Technology Stack:</span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center', borderTop: '1px solid #e2e8f0', paddingTop: '1.25rem' }}>
+                <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600, marginRight: '0.5rem' }}>Technology Stack:</span>
                 {study.tech.map((t) => (
                   <span 
                     key={t}
@@ -285,9 +285,9 @@ const CaseStudies = ({ onOpenAdvisoryModal }) => {
                       fontWeight: 600,
                       padding: '0.25rem 0.65rem',
                       borderRadius: '6px',
-                      background: 'rgba(59, 130, 246, 0.1)',
-                      color: '#93c5fd',
-                      border: '1px solid rgba(59, 130, 246, 0.2)'
+                      background: '#eff6ff',
+                      color: '#1d4ed8',
+                      border: '1px solid #bfdbfe'
                     }}
                   >
                     {t}

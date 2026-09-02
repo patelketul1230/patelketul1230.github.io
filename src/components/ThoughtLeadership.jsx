@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, GitBranch, ExternalLink, Sparkles, ArrowRight, Bot, Cpu, ShieldCheck, Terminal, Star, GitFork } from 'lucide-react';
+import { BookOpen, GitBranch, ExternalLink, Sparkles, ArrowRight, ArrowUpRight, Terminal, Star, GitFork } from 'lucide-react';
 
 const ThoughtLeadership = ({ onOpenAdvisoryModal }) => {
   const mediumLink = "https://medium.com/@kpsub786";
@@ -60,21 +60,21 @@ const ThoughtLeadership = ({ onOpenAdvisoryModal }) => {
   ];
 
   return (
-    <section id="thoughtleadership" style={{ padding: '5rem 0' }}>
+    <section id="thoughtleadership" style={{ padding: '5.5rem 0', background: '#ffffff' }}>
       <div className="container-custom">
         
-        {/* SECTION 1: Medium Articles & Agentic DevOps Focus */}
+        {/* SECTION 1: Medium Articles */}
         <div style={{ marginBottom: '5rem' }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '3rem' }}>
             <div>
               <span className="badge-glow" style={{ marginBottom: '0.75rem' }}>
                 Thought Leadership & Engineering Guides
               </span>
-              <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.6rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem' }}>
+              <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.6rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem', color: '#0f172a' }}>
                 Medium Technical Publications
               </h2>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '1.05rem', marginTop: '0.5rem', maxWidth: '650px' }}>
-                Deep dives on <strong style={{ color: '#6366f1' }}>Agentic DevOps</strong>, SRE frameworks, Port.io Developer Portals, and Cloud FinOps architecture.
+                Deep dives on <strong style={{ color: '#1d4ed8' }}>Agentic DevOps</strong>, SRE frameworks, Port.io Developer Portals, and Cloud FinOps architecture.
               </p>
             </div>
 
@@ -85,7 +85,7 @@ const ThoughtLeadership = ({ onOpenAdvisoryModal }) => {
               className="btn-secondary"
               style={{ fontSize: '0.9rem', padding: '0.7rem 1.25rem' }}
             >
-              <BookOpen size={18} style={{ color: '#6366f1' }} />
+              <BookOpen size={18} style={{ color: '#2563eb' }} />
               View Medium Profile (@kpsub786)
               <ExternalLink size={15} />
             </a>
@@ -101,16 +101,17 @@ const ThoughtLeadership = ({ onOpenAdvisoryModal }) => {
                   padding: '2rem',
                   display: 'flex',
                   flexDirection: 'column',
-                  justify: 'space-between'
+                  justify: 'space-between',
+                  background: '#ffffff'
                 }}
               >
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
                     <span className="badge-glow" style={{ fontSize: '0.75rem' }}>{article.tag}</span>
-                    <span style={{ fontSize: '0.8rem', color: '#9ca3af' }}>{article.readTime}</span>
+                    <span style={{ fontSize: '0.8rem', color: '#64748b' }}>{article.readTime}</span>
                   </div>
 
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#fff', marginBottom: '0.85rem', lineHeight: 1.35 }}>
+                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: '#0f172a', marginBottom: '0.85rem', lineHeight: 1.35 }}>
                     {article.title}
                   </h3>
 
@@ -124,7 +125,7 @@ const ThoughtLeadership = ({ onOpenAdvisoryModal }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    color: '#6366f1',
+                    color: '#2563eb',
                     fontWeight: 600,
                     fontSize: '0.88rem',
                     textDecoration: 'none',
@@ -149,7 +150,7 @@ const ThoughtLeadership = ({ onOpenAdvisoryModal }) => {
               <span className="badge-emerald" style={{ marginBottom: '0.75rem' }}>
                 Open-Source Infrastructure
               </span>
-              <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.6rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem' }}>
+              <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.6rem)', fontWeight: 800, letterSpacing: '-0.02em', marginTop: '0.5rem', color: '#0f172a' }}>
                 Featured Public GitHub Repositories
               </h2>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '1.05rem', marginTop: '0.5rem', maxWidth: '650px' }}>
@@ -164,7 +165,7 @@ const ThoughtLeadership = ({ onOpenAdvisoryModal }) => {
               className="btn-secondary"
               style={{ fontSize: '0.9rem', padding: '0.7rem 1.25rem' }}
             >
-              <GitBranch size={18} style={{ color: '#10b981' }} />
+              <GitBranch size={18} style={{ color: '#059669' }} />
               Explore All Repos (@patelketul1230)
               <ExternalLink size={15} />
             </a>
@@ -181,12 +182,13 @@ const ThoughtLeadership = ({ onOpenAdvisoryModal }) => {
                   display: 'flex',
                   flexDirection: 'column',
                   justify: 'space-between',
-                  border: '1px solid rgba(16, 185, 129, 0.2)'
+                  border: '1px solid #a7f3d0',
+                  background: '#ffffff'
                 }}
               >
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#10b981', fontWeight: 700, fontSize: '1.1rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#047857', fontWeight: 700, fontSize: '1.1rem' }}>
                       <Terminal size={18} />
                       {repo.name}
                     </div>
@@ -198,16 +200,16 @@ const ThoughtLeadership = ({ onOpenAdvisoryModal }) => {
 
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.5rem' }}>
                     {repo.tech.map((t) => (
-                      <span key={t} style={{ fontSize: '0.75rem', fontWeight: 600, padding: '0.2rem 0.5rem', borderRadius: '4px', background: 'rgba(255,255,255,0.05)', color: '#d1d5db' }}>
+                      <span key={t} style={{ fontSize: '0.75rem', fontWeight: 600, padding: '0.2rem 0.5rem', borderRadius: '4px', background: '#f1f5f9', color: '#334155', border: '1px solid #cbd5e1' }}>
                         {t}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
-                  <div style={{ display: 'flex', gap: '1rem', fontSize: '0.82rem', color: '#9ca3af' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Star size={14} style={{ color: '#f59e0b' }} /> {repo.stars}</span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #e2e8f0', paddingTop: '1rem' }}>
+                  <div style={{ display: 'flex', gap: '1rem', fontSize: '0.82rem', color: '#64748b' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Star size={14} style={{ color: '#d97706' }} /> {repo.stars}</span>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><GitFork size={14} /> {repo.forks}</span>
                   </div>
 
@@ -216,7 +218,7 @@ const ThoughtLeadership = ({ onOpenAdvisoryModal }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      color: '#10b981',
+                      color: '#059669',
                       fontWeight: 600,
                       fontSize: '0.85rem',
                       textDecoration: 'none',

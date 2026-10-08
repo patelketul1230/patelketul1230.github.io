@@ -10,8 +10,8 @@ A personal portfolio website built with React.js showcasing DevOps and cloud eng
 
 ### Installation
 ```bash
-git clone https://github.com/patelketul1230/DevOps-Portfolio.git
-cd DevOps-Portfolio
+git clone https://github.com/patelketul1230/patelketul1230.github.io.git
+cd patelketul1230.github.io
 npm install
 ```
 
@@ -41,7 +41,7 @@ This project is configured to automatically deploy to GitHub Pages using GitHub 
    - Under **Build and deployment** > **Source**, select **GitHub Actions**.
 3. The workflow in `.github/workflows/deploy.yml` will automatically build and publish your website to:
    ```
-   https://patelketul1230.github.io/DevOps-Portfolio/
+   https://patelketul1230.github.io/
    ```
 
 ## 📝 Customization

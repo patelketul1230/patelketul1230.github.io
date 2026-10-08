@@ -41,7 +41,7 @@ This project is configured to automatically deploy to GitHub Pages using GitHub 
    - Under **Build and deployment** > **Source**, select **GitHub Actions**.
 3. The workflow in `.github/workflows/deploy.yml` will automatically build and publish your website to:
    ```
-   https://patelketul1230.github.io/
+   https://ketul.us/ (also accessible at https://patelketul1230.github.io/)
    ```
 
 ## 📝 Customization
